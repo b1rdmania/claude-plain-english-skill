@@ -10,11 +10,12 @@ Strip prose of two layers of bad habits:
 1. **Classical bloat** — passive voice, abstract subjects, Latinate padding, dying metaphors. The Orwell/Gowers tradition.
 2. **AI tics** — the recognisable LLM dialect: em-dash overuse, banned vocabulary, preamble openers, summary closers, reflex rule-of-three lists, false balance, sycophancy.
 
-## Two modes
+## Modes
 
-**Audit mode.** User pastes prose and asks for critique. Return a marked-up version with specific flags (rule violated → suggested rewrite). Do not rewrite the whole thing unless asked.
-
-**Rewrite mode.** User asks for a rewrite, OR this skill is invoked as a self-audit before delivering long-form output. Produce the cleaned version. If the user asked for explanation, add 2–3 bullets of *what changed*. Bullets, not paragraphs.
+| Mode | When it fires | What to render |
+|------|---------------|----------------|
+| **Audit** | User pastes prose and asks for critique | For each flagged sentence: original → one-line flag (e.g. *passive without agent*, *abstract subject*, *banned word: leverage*) → suggested rewrite. Don't lecture. Don't restate the rules. |
+| **Rewrite** | User asks for a rewrite, OR this skill is invoked as a self-audit before delivering long-form output | Cleaned prose first. If the user asked for explanation, follow with 2–3 bullets of what changed. Bullets, not paragraphs. |
 
 ## Core rules
 
@@ -42,6 +43,8 @@ Strip prose of two layers of bad habits:
 
 ## Audit checklist
 
+The mechanical application of the Core rules above. Read those first; this is how you walk a text against them.
+
 For each sentence, ask in order:
 
 1. Active or passive? If passive without reason → fix.
@@ -56,12 +59,6 @@ For the whole text:
 7. Preamble? Summary closer? → delete.
 8. Sentence length variation → flag if uniform.
 9. Reflex three-part lists → check the count is real, not padded.
-
-## Output format
-
-**Audit mode.** Show the original sentence, the flag (one line: e.g. *passive without agent*, *abstract subject*, *banned word: leverage*), the suggested rewrite. Don't lecture. Don't restate the rules.
-
-**Rewrite mode.** Deliver the cleaned prose first. If the user asked for explanation, follow with 2–3 bullets of what changed. Not a paragraph.
 
 ## When NOT to apply
 
