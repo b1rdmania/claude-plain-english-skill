@@ -43,7 +43,14 @@ Strip prose of two layers of bad habits:
 
 ## Audit checklist
 
-The mechanical application of the Core rules above. Read those first; this is how you walk a text against them.
+The mechanical application of the Core rules above. Used by both modes — audit reports flags, rewrite acts on them.
+
+**Two steps. Don't collapse them.**
+
+1. **Flag first.** Walk every sentence against the Core rules. Do not pre-filter for voice, rhythm, or "the user's style." If a rule fires, mark it.
+2. **Override second.** For each flag, decide whether rule 7 (break the rule rather than be barbarous) applies. Name the reason in one word: *rhythm, emphasis, picture, idiom, joke*. If no reason can be named, take the fix.
+
+Walk the checklist:
 
 For each sentence, ask in order:
 
@@ -64,7 +71,7 @@ For the whole text:
 
 - Direct quotes from human sources → leave them.
 - Code, technical specifications, legal text → don't "tighten" jargon that's load-bearing.
-- The user's deliberate dialect or style → ask before changing.
+- The whole text is in deliberate dialect (e.g. AAVE, Scots, period pastiche) → ask before changing. Per-sentence voice judgments belong in the override step above, not here.
 - Fiction and creative writing → these rules are for non-fiction. Fiction has its own logic.
 
 ## Reference
