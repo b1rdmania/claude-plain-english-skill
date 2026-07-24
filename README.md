@@ -11,7 +11,7 @@ Both of them have a very clear set of rules for stripping flab and keeping focus
 
 It runs two passes over prose. The first pass is the classical one. The second is the LLM-specific one. They stack, because the problems stack: bad writing was bad before LLMs, and LLMs added their own dialect on top.
 
-It works in two modes. In **audit mode**, you paste prose and get back marked-up flags with suggested rewrites. In **rewrite mode**, you get back the cleaned version, with a few notes on what changed if you asked for them. Claude can also call it on its own drafts before delivering long-form prose, so the output arrives already cleaned up.
+It works in three modes. In **audit mode**, you paste prose and get back marked-up flags with suggested rewrites. In **rewrite mode**, you get back the cleaned version, with a few notes on what changed if you asked for them, plus a silent second pass that re-checks the rewrite before it's returned. In **edit mode**, you name a file and Claude makes minimal, targeted edits in place rather than handing back a copy. Claude can also call rewrite mode on its own drafts before delivering long-form prose, so the output arrives already cleaned up.
 
 ## The patterns it catches
 
@@ -34,7 +34,11 @@ It works in two modes. In **audit mode**, you paste prose and get back marked-up
 - The pivot construction: *It's not just X, it's Y.*
 - False balance. *On one hand... on the other...* even when one hand clearly wins.
 - Sycophantic openers and the "helpful assistant" voice bleeding into authored prose.
-- Hedge stacks. *I genuinely think it's worth noting that this may, in some sense, arguably represent...*
+- Hedge stacks, including the modal form. *I genuinely think it's worth noting that this may, in some sense, arguably represent...*, *this could potentially unlock...*
+- Unnamed authority. *Experts believe, studies show* — with no one named.
+- Novelty inflation. Treating an applied idea as an invention, or dropping an undefined coined term.
+- Diff-anchored writing. Docs that narrate the edit instead of describing the current state.
+- Mechanical paste-tells. Unfilled placeholders, chat-tool citation markup, AI-tool URL tracking params.
 
 ## The ethos
 
@@ -54,13 +58,15 @@ This skill is the anti-pattern list, codified, plus the older tradition that LLM
 
 ```mermaid
 flowchart TD
-    A[Prose in] --> B{Trigger}
+    A[Prose or file in] --> B{Trigger}
     B -->|User pastes for critique| C[Audit mode]
     B -->|User asks for rewrite| D[Rewrite mode]
     B -->|Claude is about to ship long-form prose| D
+    B -->|User names a file to fix in place| K[Edit mode]
 
     C --> P1
     D --> P1
+    K --> P1
 
     subgraph P1[Pass 1 — Orwell + Gowers]
         E1[Passive voice without agent]
@@ -81,14 +87,21 @@ flowchart TD
         F5[False balance]
         F6[Hedge stack collapse]
         F7[Sentence-length variation]
+        F8[Hedge stacks, incl. modal + hedge]
+        F9[Unnamed authority]
+        F10[Novelty inflation]
+        F11[Diff-anchored writing]
+        F12[Mechanical paste-tells]
     end
 
     P2 --> G{Mode}
     G -->|Audit| H[Flagged sentences + suggested rewrites]
-    G -->|Rewrite| I[Cleaned prose, with optional change notes]
+    G -->|Rewrite| I[Cleaned prose + second-pass re-check]
+    G -->|Edit| J[File edited in place + change report]
 
     H --> Z[Out]
     I --> Z
+    J --> Z
 ```
 
 ## Install

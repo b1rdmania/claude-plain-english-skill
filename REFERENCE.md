@@ -89,6 +89,38 @@ Use sparingly, never reflexively:
 - "On the other hand" (only when there's a real other hand)
 - "It's not just X, it's Y"
 
+## Vague attribution
+
+| Vague | Fix |
+|-------|-----|
+| experts believe | (name the expert) |
+| studies show | (name the study) |
+| industry leaders agree | (name one) |
+| research suggests | (name the source) |
+
+## Novelty inflation
+
+- "He introduced a term" / "she coined the phrase" / "a concept nobody's naming" → describe what they did with the idea, not that they invented it.
+- An invented compound term dropped mid-sentence and never defined ("the supervision paradox," "a coordination tax") → define it or describe the mechanism instead of branding it.
+
+## Diff-anchored writing
+
+Docs and comments should describe the thing as it is, not narrate the edit that produced it.
+
+**Before:** This function was added to replace the previous approach of iterating through all items.
+
+**After:** This function uses a hash map for O(1) lookups.
+
+If the history matters, it belongs in the changelog or commit message, not the doc.
+
+## Mechanical tells (always strip)
+
+No judgment call — presence alone is proof of unedited paste-from-chat.
+
+- Unfilled placeholders: `[Your Name]`, `[INSERT SOURCE URL]`, `2025-XX-XX`
+- Chat-tool citation markup: `citeturn0search0`, `oai_citation`, `[attached_file:1]`
+- AI-tool URL tracking params: `utm_source=chatgpt.com`, `utm_source=perplexity.ai`
+
 ## Verbal false limbs (Orwell)
 
 | False limb | Verb |
@@ -160,6 +192,12 @@ Use sparingly, never reflexively:
 **Before:** I genuinely think it's worth noting that this approach may, in some sense, arguably represent a potentially significant improvement.
 
 **After:** This approach is better.
+
+---
+
+**Before:** This could potentially unlock significant efficiency gains.
+
+**After:** This unlocks significant efficiency gains. (One modal, one claim — pick "could unlock" or "unlocks," not both hedges stacked.)
 
 ### Preamble + closer cut
 

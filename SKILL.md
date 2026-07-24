@@ -15,7 +15,8 @@ Strip prose of two layers of bad habits:
 | Mode | When it fires | What to render |
 |------|---------------|----------------|
 | **Audit** | User pastes prose and asks for critique | For each flagged sentence: original → one-line flag (e.g. *passive without agent*, *abstract subject*, *banned word: leverage*) → suggested rewrite. Don't lecture. Don't restate the rules. |
-| **Rewrite** | User asks for a rewrite, OR this skill is invoked as a self-audit before delivering long-form output | Cleaned prose first. If the user asked for explanation, follow with 2–3 bullets of what changed. Bullets, not paragraphs. |
+| **Rewrite** | User asks for a rewrite, OR this skill is invoked as a self-audit before delivering long-form output | Cleaned prose first. If the user asked for explanation, follow with 2–3 bullets of what changed. Bullets, not paragraphs. Then re-read your own rewrite against the Core rules once more (second pass) — fix anything that survived, silently, before returning. |
+| **Edit** | User names a file and asks to fix or clean it in place | Minimal, targeted edits with the Edit tool — change the flagged spans only. Leave passages with no tells untouched. Don't touch quoted material or text attributed to someone else — flag those instead. Report what changed, not the whole file. |
 
 ## Core rules
 
@@ -39,7 +40,11 @@ Strip prose of two layers of bad habits:
 13. **No reflex rule-of-three.** If the content has two points or four, use two or four. Don't pad to three.
 14. **Vary sentence length.** AI prose clusters around 18–22 words. Good prose ranges from 4 to 40. Mix short punchy sentences with longer ones.
 15. **No sycophancy.** Don't validate the user's framing before answering. Don't say "great point."
-16. **Cut hedge stacks.** *Genuinely, honestly, it's worth noting, I find that, arguably* — one hedge per claim, max. Stacked hedges erase the claim.
+16. **Cut hedge stacks.** *Genuinely, honestly, it's worth noting, I find that, arguably* — one hedge per claim, max. Stacked hedges erase the claim. Includes the modal+hedge form: *could potentially, may eventually, might ultimately* — pick one word, not both.
+17. **No unnamed authority.** "Industry leaders agree," "studies show," "an outside party confirms" — without a name, it's unfalsifiable. Name the source or cut the claim.
+18. **No novelty inflation.** "A concept nobody's naming," "she coined the phrase" — most ideas are applications, not inventions. Describe what was done with the idea, not that it was discovered. Same goes for a made-up compound term dropped mid-sentence and never defined.
+19. **No diff-anchored writing.** Docs or comments that narrate the change ("this replaces the previous approach of…") instead of describing the thing as it is now. A reader without the commit history gets archaeology, not documentation. History belongs in the changelog.
+20. **Mechanical tells — always strip, no judgment call.** Unfilled placeholders (`[Your Name]`, `2025-XX-XX`), chat-tool citation markup (`citeturn0search0`, `oai_citation`, `[attached_file:1]`), tracking params from AI tools (`utm_source=chatgpt.com`). Their presence alone is proof of unedited paste, regardless of what the surrounding text reads like.
 
 ## Audit checklist
 
@@ -59,13 +64,18 @@ For each sentence, ask in order:
 3. Verbal false limb? (*make contact with, exhibit a tendency to, give consideration to*) → replace with a single verb.
 4. Abstract noun as subject? → make it concrete or use a person.
 5. Banned LLM vocabulary? Latinate where Saxon fits? → substitute.
+6. Hedge stack, including modal + hedge? (*genuinely... arguably*, *could potentially*) → collapse to one hedge, one word.
+7. Unnamed authority? (*experts believe, studies show*) → name the source or cut the claim.
+8. Novelty inflation, or an undefined invented term? → describe what was done with the idea, or define the term.
 
 For the whole text:
 
-6. Em-dash count vs word count → trim if over budget.
-7. Preamble? Summary closer? → delete.
-8. Sentence length variation → flag if uniform.
-9. Reflex three-part lists → check the count is real, not padded.
+9. Em-dash count vs word count → trim if over budget.
+10. Preamble? Summary closer? → delete.
+11. Sentence length variation → flag if uniform.
+12. Reflex three-part lists → check the count is real, not padded.
+13. Docs/comments narrating the edit instead of the current state? → rewrite to describe what's true now; history goes in the changelog.
+14. Mechanical paste-tells — placeholders, chat-tool citation markup, AI-tool URL params? → strip on sight, no judgment call needed.
 
 ## When NOT to apply
 
@@ -73,6 +83,7 @@ For the whole text:
 - Code, technical specifications, legal text → don't "tighten" jargon that's load-bearing.
 - The whole text is in deliberate dialect (e.g. AAVE, Scots, period pastiche) → ask before changing. Per-sentence voice judgments belong in the override step above, not here.
 - Fiction and creative writing → these rules are for non-fiction. Fiction has its own logic.
+- Writing *about* AI tics (this file, a blog post on the topic) → quoted or clearly-illustrative examples of bad writing are exempt. Only flag the author's own prose, not their cited examples.
 
 ## Reference
 
