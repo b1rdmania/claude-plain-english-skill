@@ -1,6 +1,6 @@
 ---
 name: plain-english
-description: Tighten prose by stripping AI tics and applying Orwell/Gowers plain-English rules. Use when the user asks to rewrite, tighten, simplify, or detox writing — phrases like "plain English", "make this clearer", "cut the AI voice", "fix the writing", "rewrite plainly", "tighten this", "detox this". Also run as a self-audit pass before delivering long-form prose (essays, blog posts, articles, reports) so the output isn't recognisably AI-generated. Technical documentation routes to the simple-english skill instead.
+description: Tighten prose by stripping AI tics and applying Orwell/Gowers plain-English rules. Use when the user asks to rewrite, tighten, simplify, or detox writing — phrases like "plain English", "make this clearer", "cut the AI voice", "fix the writing", "rewrite plainly", "tighten this", "detox this". Also run as a self-audit pass before delivering long-form prose (essays, blog posts, articles, reports) so the output isn't recognisably AI-generated. Three modes: audit (flag + suggest), rewrite (deliver cleaned prose), edit (fix a named file in place). Technical documentation routes to the simple-english skill instead.
 ---
 
 # Plain English
@@ -61,27 +61,28 @@ The mechanical application of the Core rules above. Used by both modes — audit
 
 Walk the checklist:
 
-For each sentence, ask in order:
+For each sentence, ask in order. Each item names the rules that define it — the rules are the single source of truth; this list only sets the walking order:
 
-1. Active or passive? If passive without reason → fix.
-2. Any word that could be cut without changing meaning? → cut it.
-3. Verbal false limb? (*make contact with, exhibit a tendency to, give consideration to*) → replace with a single verb.
-4. Abstract noun as subject? → make it concrete or use a person.
-5. Banned LLM vocabulary? Latinate where Saxon fits? → substitute.
-6. Hedge stack, including modal + hedge? (*genuinely... arguably*, *could potentially*) → collapse to one hedge, one word.
-7. Unnamed authority? (*experts believe, studies show*) → name the source or cut the claim.
-8. Novelty inflation, or an undefined invented term? → describe what was done with the idea, or define the term.
-9. Instructional sentence? → condition first, one instruction per sentence, no "should" for requirements.
+1. Active or passive? → rule 2.
+2. Any word that could be cut without changing meaning? → rule 1.
+3. Verbal false limb? (*make contact with, exhibit a tendency to*) → rule 5.
+4. Abstract noun as subject? → rule 3.
+5. Banned LLM vocabulary? Latinate where Saxon fits? → rules 8, 4.
+6. Hedge stack, including modal + hedge? → rule 16.
+7. Unnamed authority? → rule 17.
+8. Novelty inflation, or an undefined invented term? → rule 18.
+9. Instructional sentence? → rules 21–23.
 
 For the whole text:
 
-10. Em-dash count vs word count → trim if over budget.
-11. Preamble? Summary closer? → delete.
-12. Sentence length variation → flag if uniform.
-13. Reflex three-part lists → check the count is real, not padded.
-14. Synonym rotation? → one name per thing; collapse to the first term used.
-15. Docs/comments narrating the edit instead of the current state? → rewrite to describe what's true now; history goes in the changelog.
-16. Mechanical paste-tells — placeholders, chat-tool citation markup, AI-tool URL params? → strip on sight, no judgment call needed.
+10. Em-dash count vs word count → rule 9.
+11. Preamble? Summary closer? → rules 10, 11.
+12. Sentence length uniform? → rule 14.
+13. Padded three-part lists? → rule 13.
+14. Synonym rotation? → rule 20.
+15. Narrating the edit instead of the current state? → rule 19.
+16. Mechanical paste-tells? → rule 24.
+17. False balance? → rule 12. Sycophancy? → rule 15.
 
 ## Routing: plain-english vs simple-english
 
@@ -97,4 +98,4 @@ This skill is for prose with a voice — essays, posts, emails, chat, marketing,
 
 ## Reference
 
-See `REFERENCE.md` for the full banned-word substitution table and before/after examples. Load it when running an audit or rewrite — that's where the substitution table lives.
+See `REFERENCE.md` for the full banned-word substitution table and before/after examples. Load it whenever any mode runs.
