@@ -1,6 +1,6 @@
 ---
 name: plain-english
-description: Tighten prose by stripping AI tics and applying Orwell/Gowers plain-English rules. Use when the user asks to rewrite, tighten, simplify, or detox writing — phrases like "plain English", "make this clearer", "cut the AI voice", "fix the writing", "rewrite plainly", "tighten this", "detox this". Also run as a self-audit pass before delivering long-form prose (essays, blog posts, articles, reports, documentation) so the output isn't recognisably AI-generated.
+description: Tighten prose by stripping AI tics and applying Orwell/Gowers plain-English rules. Use when the user asks to rewrite, tighten, simplify, or detox writing — phrases like "plain English", "make this clearer", "cut the AI voice", "fix the writing", "rewrite plainly", "tighten this", "detox this". Also run as a self-audit pass before delivering long-form prose (essays, blog posts, articles, reports) so the output isn't recognisably AI-generated. Technical documentation routes to the simple-english skill instead.
 ---
 
 # Plain English
@@ -44,7 +44,11 @@ Strip prose of two layers of bad habits:
 17. **No unnamed authority.** "Industry leaders agree," "studies show," "an outside party confirms" — without a name, it's unfalsifiable. Name the source or cut the claim.
 18. **No novelty inflation.** "A concept nobody's naming," "she coined the phrase" — most ideas are applications, not inventions. Describe what was done with the idea, not that it was discovered. Same goes for a made-up compound term dropped mid-sentence and never defined.
 19. **No diff-anchored writing.** Docs or comments that narrate the change ("this replaces the previous approach of…") instead of describing the thing as it is now. A reader without the commit history gets archaeology, not documentation. History belongs in the changelog.
-20. **Mechanical tells — always strip, no judgment call.** Unfilled placeholders (`[Your Name]`, `2025-XX-XX`), chat-tool citation markup (`citeturn0search0`, `oai_citation`, `[attached_file:1]`), tracking params from AI tools (`utm_source=chatgpt.com`). Their presence alone is proof of unedited paste, regardless of what the surrounding text reads like.
+20. **No synonym rotation.** One name per thing for the whole text. AI prose calls it "config", then "settings", then "options" to fake variety — Gowers called this elegant variation and hated it. Vary sentences, never terminology.
+21. **Condition before command.** In instructional sentences, the condition leads: "If the build fails, read the log" — never "Read the log if the build fails". The reader shouldn't start acting before knowing whether the sentence applies to them.
+22. **Modal ladder for instructions.** "Should" is a hedge wearing a requirement's clothes. A requirement is *must*. A recommendation is stated as fact ("X is better because Y") or cut. Readers — and models — treat "should" as optional.
+23. **One instruction per sentence** in how-to passages. Two actions stacked in one sentence get one of them skipped.
+24. **Mechanical tells — always strip, no judgment call.** Unfilled placeholders (`[Your Name]`, `2025-XX-XX`), chat-tool citation markup (`citeturn0search0`, `oai_citation`, `[attached_file:1]`), tracking params from AI tools (`utm_source=chatgpt.com`). Their presence alone is proof of unedited paste, regardless of what the surrounding text reads like.
 
 ## Audit checklist
 
@@ -67,15 +71,21 @@ For each sentence, ask in order:
 6. Hedge stack, including modal + hedge? (*genuinely... arguably*, *could potentially*) → collapse to one hedge, one word.
 7. Unnamed authority? (*experts believe, studies show*) → name the source or cut the claim.
 8. Novelty inflation, or an undefined invented term? → describe what was done with the idea, or define the term.
+9. Instructional sentence? → condition first, one instruction per sentence, no "should" for requirements.
 
 For the whole text:
 
-9. Em-dash count vs word count → trim if over budget.
-10. Preamble? Summary closer? → delete.
-11. Sentence length variation → flag if uniform.
-12. Reflex three-part lists → check the count is real, not padded.
-13. Docs/comments narrating the edit instead of the current state? → rewrite to describe what's true now; history goes in the changelog.
-14. Mechanical paste-tells — placeholders, chat-tool citation markup, AI-tool URL params? → strip on sight, no judgment call needed.
+10. Em-dash count vs word count → trim if over budget.
+11. Preamble? Summary closer? → delete.
+12. Sentence length variation → flag if uniform.
+13. Reflex three-part lists → check the count is real, not padded.
+14. Synonym rotation? → one name per thing; collapse to the first term used.
+15. Docs/comments narrating the edit instead of the current state? → rewrite to describe what's true now; history goes in the changelog.
+16. Mechanical paste-tells — placeholders, chat-tool citation markup, AI-tool URL params? → strip on sight, no judgment call needed.
+
+## Routing: plain-english vs simple-english
+
+This skill is for prose with a voice — essays, posts, emails, chat, marketing, anything where rhythm matters. Technical documentation (READMEs, runbooks, procedures, error messages, incident reports) is a different job with a different reader, better served by a controlled-language skill built on ASD-STE100 — e.g. [SimpleEnglish](https://github.com/AminBlg/SimpleEnglish). The two conflict by design (STE expands contractions, keeps every article, writes "make sure that" where this skill writes "ensure"), so never apply both to the same text. If an STE skill is installed, hand technical docs to it instead of applying the rules here.
 
 ## When NOT to apply
 

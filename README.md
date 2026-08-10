@@ -37,6 +37,8 @@ It works in three modes. In **audit mode**, you paste prose and get back marked-
 - Hedge stacks, including the modal form. *I genuinely think it's worth noting that this may, in some sense, arguably represent...*, *this could potentially unlock...*
 - Unnamed authority. *Experts believe, studies show* — with no one named.
 - Novelty inflation. Treating an applied idea as an invention, or dropping an undefined coined term.
+- Synonym rotation. Calling it *config*, then *settings*, then *options* to fake variety. Gowers called it elegant variation.
+- Loose instructional sentences. Commands before their conditions, *should* where *must* is meant, two actions stacked in one sentence. Borrowed from ASD-STE100, the aerospace controlled-language standard.
 - Diff-anchored writing. Docs that narrate the edit instead of describing the current state.
 - Mechanical paste-tells. Unfilled placeholders, chat-tool citation markup, AI-tool URL tracking params.
 
@@ -92,6 +94,8 @@ flowchart TD
         F10[Novelty inflation]
         F11[Diff-anchored writing]
         F12[Mechanical paste-tells]
+        F13[Synonym rotation]
+        F14[Instructional discipline]
     end
 
     P2 --> G{Mode}
@@ -114,7 +118,7 @@ git clone https://github.com/b1rdmania/claude-plain-english-skill.git ~/.claude/
 
 *plain English, tighten this, make this clearer, cut the AI voice, rewrite plainly, fix the writing, detox this.*
 
-Also runs as a self-audit on long-form output (essays, blog posts, articles, reports, documentation).
+Also runs as a self-audit on long-form output (essays, blog posts, articles, reports). Technical documentation is a different job — see the routing note in SKILL.md.
 
 ## Sources
 
@@ -122,6 +126,7 @@ Also runs as a self-audit on long-form output (essays, blog posts, articles, rep
 - Sir Ernest Gowers, *Plain Words* (1948)
 - Sir Ernest Gowers, *The ABC of Plain Words* (1951)
 - Research on LLM writing tics across Claude, GPT-4, Gemini, Llama (2024–2026)
+- ASD-STE100 Simplified Technical English, Issue 9 (2025) — the instructional-sentence rules (condition before command, the modal ladder, one instruction per sentence) and the one-name-per-thing rule are adapted from it
 
 ## License
 
