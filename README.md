@@ -1,9 +1,10 @@
 # plain-english
 
-There are a few seminal texts on coherent and clear writing in the English language. Two that I particularly like are:
+There are a few seminal texts on coherent and clear writing in the English language. Three that I particularly like are:
 
 1. George Orwell's essay on communication and writing in politics
 2. A book written in 1948 for civil servants, and then published with a follow-up
+3. The controlled language aerospace has used for maintenance manuals since 1983, written so a tired mechanic reading in a second language can't misread a step
 
 Both of them have a very clear set of rules for stripping flab and keeping focused when writing. There's an argument over whether using them strips some beauty, but I've been using variants of these in my dealings with LLMs for the last three years, and you definitely get improved copy. We all know the tendency of LLMs to produce slop. There are patterns that you notice if you're in the weeds that aren't just ChatGPT's insane use of bullet points and numbering. There's also these lists of patterns and repetitions and argument structuring. There are various ways of beating this. You can voice-pick fingerprint yourself and add in a lot of anti-patterns, but I wanted to pull together a skill that helps create writing that doesn't necessarily feel like LLM slop.
 
@@ -47,6 +48,8 @@ It works in three modes. In **audit mode**, you paste prose and get back marked-
 Orwell published *Politics and the English Language* in 1946. The argument was political. Bad writing makes bad thought possible, and bad thought serves bad politics. He gave six rules and four categories of disease (dying metaphors, verbal false limbs, pretentious diction, meaningless words). The sixth rule is the saving clause: break any of these rules sooner than say anything outright barbarous.
 
 Sir Ernest Gowers wrote *Plain Words* in 1948 for the British civil service, and a follow-up called *The ABC of Plain Words* in 1951. Gowers' golden rule: "the first law of writing is that the words employed should be such as to convey to the reader the meaning of the writer." Everything else is subordinate to that. He attacked officialese the way Orwell attacked political language — same disease, different costume.
+
+ASD-STE100 Simplified Technical English comes from a different world — aerospace maintenance documentation, in use since 1983. Its rules exist so an instruction cannot be misread: one name per thing, condition before command, no "should" (readers treat it as optional, and so do models). The full standard is too strict for prose with a voice — it expands contractions and bans most of the dictionary — so this skill takes only the rules that transfer. If you want the whole standard for technical docs, use an STE skill like [SimpleEnglish](https://github.com/AminBlg/SimpleEnglish) instead; the two shouldn't run on the same text.
 
 The argument against this tradition is that stripped prose loses beauty. Sometimes it does. Orwell's sixth rule covers it. Clarity wins, but never at the cost of the line that actually sings. The skill is opinionated, not absolutist. If breaking a rule produces a better sentence, break the rule.
 
