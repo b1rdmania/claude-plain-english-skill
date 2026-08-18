@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.4.0 — 2026-08-18
+
+The shared Agent Skill release. The repository-root skill remains the canonical implementation and keeps the existing Claude Code installation path. Added Claude and Codex plugin manifests, Codex UI metadata, and a self-contained marketplace copy of the skill with an automated drift check.
+
+Also fixed the root YAML description for strict parsers and replaced the Claude-specific "Edit tool" wording with product-neutral file-editing instructions. The editing behaviour is unchanged.
+
 ## v0.3.0 — 2026-08-10
 
 The STE layer. Four rules adapted from ASD-STE100 Simplified Technical English, the controlled language aerospace has used for maintenance manuals since 1983:

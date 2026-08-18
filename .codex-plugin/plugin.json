@@ -1,0 +1,40 @@
+{
+  "name": "plain-english",
+  "version": "0.4.0",
+  "description": "Tighten prose with Orwell and Gowers plain-English rules while stripping common AI-writing tics.",
+  "author": {
+    "name": "b1rdmania",
+    "url": "https://github.com/b1rdmania"
+  },
+  "homepage": "https://github.com/b1rdmania/claude-plain-english-skill",
+  "repository": "https://github.com/b1rdmania/claude-plain-english-skill",
+  "license": "MIT",
+  "keywords": [
+    "plain-english",
+    "writing",
+    "editing",
+    "ai-writing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Plain English",
+    "shortDescription": "Tighten prose and remove AI-writing tics.",
+    "longDescription": "Audit, rewrite, or minimally edit prose using Orwell and Gowers plain-English rules plus a second pass for common AI-writing habits.",
+    "developerName": "b1rdmania",
+    "category": "Productivity",
+    "capabilities": [
+      "Write"
+    ],
+    "brandColor": "#E53924",
+    "composerIcon": "./assets/plain-english-logo.png",
+    "logo": "./assets/plain-english-logo.png",
+    "websiteURL": "https://github.com/b1rdmania/claude-plain-english-skill",
+    "privacyPolicyURL": "https://github.com/b1rdmania/claude-plain-english-skill/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/b1rdmania/claude-plain-english-skill/blob/main/TERMS.md",
+    "defaultPrompt": [
+      "Rewrite this in plain English without changing its meaning.",
+      "Audit this prose for bloat and common AI-writing tics.",
+      "Tighten this file with minimal edits."
+    ]
+  }
+}

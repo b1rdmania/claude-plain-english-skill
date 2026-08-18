@@ -1,4 +1,10 @@
-# plain-english
+# Plain English for Claude Code and Codex
+
+<img src="assets/plain-english-logo.png" alt="Plain English logo" width="160">
+
+Plain English is a shared **Claude Code and Codex plugin**, also usable as a standalone Agent Skill. It applies Orwell and Gowers' plain-English rules, then strips the writing habits that make model-generated prose recognisable.
+
+The repository keeps one editorial ruleset for both products. Claude Code uses `.claude-plugin/plugin.json`; Codex and the OpenAI Plugins Directory use `.codex-plugin/plugin.json`.
 
 There are a few seminal texts on coherent and clear writing in the English language. Three that I particularly like are:
 
@@ -12,7 +18,7 @@ Both of them have a very clear set of rules for stripping flab and keeping focus
 
 It runs two passes over prose. The first pass is the classical one. The second is the LLM-specific one. They stack, because the problems stack: bad writing was bad before LLMs, and LLMs added their own dialect on top.
 
-It works in three modes. In **audit mode**, you paste prose and get back marked-up flags with suggested rewrites. In **rewrite mode**, you get back the cleaned version, with a few notes on what changed if you asked for them, plus a silent second pass that re-checks the rewrite before it's returned. In **edit mode**, you name a file and Claude makes minimal, targeted edits in place rather than handing back a copy. Claude can also call rewrite mode on its own drafts before delivering long-form prose, so the output arrives already cleaned up.
+It works in three modes. In **audit mode**, you paste prose and get back marked-up flags with suggested rewrites. In **rewrite mode**, you get back the cleaned version, with a few notes on what changed if you asked for them, plus a silent second pass that re-checks the rewrite before it's returned. In **edit mode**, you name a file and Claude Code or Codex makes minimal, targeted edits in place rather than handing back a copy. Either model can also call rewrite mode on its own drafts before delivering long-form prose, so the output arrives already cleaned up.
 
 ## The patterns it catches
 
@@ -57,7 +63,7 @@ The argument against this tradition is that stripped prose loses beauty. Sometim
 
 LLM output has a recognisable shape. Once you've seen it you can't unsee it. The em-dashes, the rule-of-three, the *delve into the nuanced tapestry of...*, the preamble before the answer, the summary after it, the hedges that erase whatever claim was supposedly being made. Most people who use LLMs at scale either learn to post-edit by hand, build their own anti-pattern list, or just publish slop.
 
-This skill is the anti-pattern list, codified, plus the older tradition that LLMs collectively forgot. Claude reads it, applies it, and the prose stops sounding like every other model on the internet.
+This skill is the anti-pattern list, codified, plus the older tradition that LLMs collectively forgot. Claude Code or Codex reads it, applies it, and the prose stops sounding like every other model on the internet.
 
 ## How it works
 
@@ -66,7 +72,7 @@ flowchart TD
     A[Prose or file in] --> B{Trigger}
     B -->|User pastes for critique| C[Audit mode]
     B -->|User asks for rewrite| D[Rewrite mode]
-    B -->|Claude is about to ship long-form prose| D
+    B -->|Model is about to ship long-form prose| D
     B -->|User names a file to fix in place| K[Edit mode]
 
     C --> P1
@@ -113,9 +119,43 @@ flowchart TD
 
 ## Install
 
+The repository is one Agent Skill packaged as a plugin for both Claude Code and Codex. `SKILL.md` at the repository root is the canonical implementation. The copy under `skills/plain-english/` is generated from it for plugin archives and checked for drift.
+
+### Claude Code
+
+Install it as a personal skill:
+
 ```
 git clone https://github.com/b1rdmania/claude-plain-english-skill.git ~/.claude/skills/plain-english
 ```
+
+Existing Claude installations keep working unchanged. To test the repository through Claude Code's plugin system:
+
+```
+claude --plugin-dir ./claude-plain-english-skill
+```
+
+### Codex and ChatGPT
+
+Ask Codex to install the skill from this GitHub repository, or clone it into the Codex skills directory:
+
+```
+git clone https://github.com/b1rdmania/claude-plain-english-skill.git ~/.codex/skills/plain-english
+```
+
+Invoke it explicitly with `$plain-english`, or let Codex select it when a request matches the skill description.
+
+The repository includes `.codex-plugin/plugin.json` for the universal OpenAI Plugins Directory shared by ChatGPT and Codex. Once OpenAI approves and publishes the listing, users can install it from that directory. Until then, install it directly as a skill.
+
+## Plugin distribution
+
+- **Claude Code:** `.claude-plugin/plugin.json` keeps the repository compatible with Claude Code's plugin format and the existing personal-skill installation.
+- **Codex and ChatGPT:** `.codex-plugin/plugin.json` and `skills/plain-english/` form the skills-only plugin submitted to OpenAI's universal Plugins Directory.
+- **No service or account required:** the plugin contains instructions and reference material only. It has no MCP server, authentication, telemetry, or external data store.
+
+Public directory publication requires OpenAI review. See [`submission/portal-copy.md`](submission/portal-copy.md) for the prepared listing copy, policy URLs, release notes, and test cases used during submission.
+
+Build the upload archive with `bash scripts/build-plugin-archive.sh`, then upload the resulting ZIP through the [OpenAI plugin submission portal](https://platform.openai.com/apps-manage). The publisher must complete identity verification and the final policy attestations.
 
 ## Trigger phrases
 

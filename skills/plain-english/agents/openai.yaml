@@ -1,0 +1,7 @@
+interface:
+  display_name: "Plain English"
+  short_description: "Tighten prose and remove AI-writing tics"
+  default_prompt: "Use $plain-english to rewrite this clearly without changing its meaning."
+
+policy:
+  allow_implicit_invocation: true
