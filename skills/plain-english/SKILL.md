@@ -87,7 +87,7 @@ For the whole text:
 
 ## Routing: plain-english vs simple-english
 
-This skill is for prose with a voice — essays, posts, emails, chat, marketing, anything where rhythm matters. Technical documentation (READMEs, runbooks, procedures, error messages, incident reports) is a different job with a different reader, better served by a controlled-language skill built on ASD-STE100 — e.g. [SimpleEnglish](https://github.com/AminBlg/SimpleEnglish). The two conflict by design (STE expands contractions, keeps every article, writes "make sure that" where this skill writes "ensure"), so never apply both to the same text. If an STE skill is installed, hand technical docs to it instead of applying the rules here.
+This skill is for prose with a voice — essays, posts, emails, chat, marketing, anything where rhythm matters. Technical documentation (READMEs, runbooks, procedures, error messages, incident reports) is a different job with a different reader, better served by `$simple-english`, the companion ASD-STE100 skill bundled with the plugin. The two conflict by design (STE expands contractions, keeps every article, writes "make sure that" where this skill writes "ensure"), so never apply both to the same text. Route technical documentation to `$simple-english` when it is available.
 
 ## When NOT to apply
 

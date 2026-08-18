@@ -6,8 +6,8 @@ Use this copy for the **Skills only** submission type in the OpenAI plugin submi
 
 - **Plugin name:** Plain English
 - **Category:** Productivity
-- **Short description:** Tighten prose and remove common AI-writing tics.
-- **Long description:** Audit, rewrite, or minimally edit prose using Orwell and Gowers' plain-English rules, followed by a second pass for common model-writing habits such as padded openings, hedge stacks, vague attribution, repetitive sentence shapes, and em-dash overuse. Plain English preserves quoted material and deliberate voice, and it avoids code, legal text, technical specifications, and fiction unless the user explicitly asks otherwise.
+- **Short description:** Clear prose and unambiguous technical documentation.
+- **Long description:** Choose between two complementary writing skills. Plain English audits, rewrites, or minimally edits voice-led prose using Orwell and Gowers' rules plus a second pass for common model-writing habits. Simple English rewrites technical documentation with 53 ASD-STE100-derived rules for short sentences, consistent terminology, simple tenses, condition-first commands, and one instruction per sentence. The plugin routes by content type and never combines the conflicting rule sets.
 - **Website:** https://github.com/b1rdmania/claude-plain-english-skill
 - **Support:** https://github.com/b1rdmania/claude-plain-english-skill/issues
 - **Privacy:** https://github.com/b1rdmania/claude-plain-english-skill/blob/main/PRIVACY.md
@@ -19,15 +19,15 @@ Use this copy for the **Skills only** submission type in the OpenAI plugin submi
 
 1. Rewrite this in plain English without changing its meaning.
 2. Audit this prose for bloat and common AI-writing tics.
-3. Tighten this file with minimal edits and leave quoted material unchanged.
+3. Rewrite these technical instructions in Simplified Technical English.
 
 ## Release notes
 
-Initial public submission of Plain English, a skills-only writing plugin for ChatGPT and Codex. It supports audit, rewrite, and in-place edit workflows. It contains no MCP server, authentication, telemetry, or external data store.
+Initial public submission of a skills-only writing plugin for ChatGPT and Codex. It bundles Plain English for voice-led prose and Simple English for ASD-STE100-derived technical writing. It contains no MCP server, authentication, telemetry, or external data store.
 
 ## Data and permissions
 
-The plugin contains instructions and reference text only. It uses the host product's existing conversation and file capabilities. It does not connect to an external service, create an account, authenticate a user, collect analytics, or retain data independently.
+The plugin contains two writing skills and their reference text only. It uses the host product's existing conversation and file capabilities. It does not connect to an external service, create an account, authenticate a user, collect analytics, or retain data independently.
 
 ## Availability
 

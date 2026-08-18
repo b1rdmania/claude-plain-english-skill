@@ -9,5 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check packaged skill
-        run: bash scripts/sync-plugin-skill.sh --check
+      - name: Check two-skill plugin bundle
+        run: bash scripts/check-plugin-bundle.sh

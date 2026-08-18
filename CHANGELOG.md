@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.5.0 — 2026-08-18
+
+The two-skill release. The plugin now bundles SimpleEnglish 1.2.0 for full ASD-STE100-derived technical writing alongside Plain English for prose with a voice. Each skill has separate triggers and routes incompatible work to its companion instead of mixing both rule sets.
+
+The vendored SimpleEnglish source is pinned to upstream commit `63f5d57f0c56e24108f63655d40f1a2680bd4e6f`, with its MIT licence and attribution preserved in `THIRD_PARTY_NOTICES.md`. Its frontmatter is normalized for strict Codex skill validation and OpenAI interface metadata is added.
+
 ## v0.4.0 — 2026-08-18
 
 The shared Agent Skill release. The repository-root skill remains the canonical implementation and keeps the existing Claude Code installation path. Added Claude and Codex plugin manifests, Codex UI metadata, and a self-contained marketplace copy of the skill with an automated drift check.
