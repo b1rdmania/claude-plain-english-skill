@@ -2,9 +2,12 @@
 
 <img src="assets/plain-english-logo.png" alt="Plain English logo" width="160">
 
-Plain English is a shared **Claude Code and Codex plugin**, also usable as a standalone Agent Skill. It applies Orwell and Gowers' plain-English rules, then strips the writing habits that make model-generated prose recognisable.
+Plain English is a shared **Claude Code and Codex plugin** containing two complementary Agent Skills:
 
-The repository keeps one editorial ruleset for both products. Claude Code uses `.claude-plugin/plugin.json`; Codex and the OpenAI Plugins Directory use `.codex-plugin/plugin.json`.
+- **Plain English** applies Orwell and Gowers' rules to prose with a voice, then strips common model-writing habits.
+- **Simple English** applies 53 ASD-STE100-derived rules to technical documentation where ambiguity matters more than voice.
+
+The skills route work between themselves and never apply both rule sets to the same text. Claude Code uses `.claude-plugin/plugin.json`; Codex and the OpenAI Plugins Directory use `.codex-plugin/plugin.json`.
 
 There are a few seminal texts on coherent and clear writing in the English language. Three that I particularly like are:
 
@@ -119,7 +122,7 @@ flowchart TD
 
 ## Install
 
-The repository is one Agent Skill packaged as a plugin for both Claude Code and Codex. `SKILL.md` at the repository root is the canonical implementation. The copy under `skills/plain-english/` is generated from it for plugin archives and checked for drift.
+The repository packages two Agent Skills for both Claude Code and Codex. `SKILL.md` at the repository root is the canonical Plain English implementation. The copy under `skills/plain-english/` is generated from it and checked for drift. `skills/simple-english/` is a pinned, attributed adaptation of [AminBlg/SimpleEnglish](https://github.com/AminBlg/SimpleEnglish).
 
 ### Claude Code
 
@@ -129,7 +132,7 @@ Install it as a personal skill:
 git clone https://github.com/b1rdmania/claude-plain-english-skill.git ~/.claude/skills/plain-english
 ```
 
-Existing Claude installations keep working unchanged. To test the repository through Claude Code's plugin system:
+Existing Claude personal-skill installations keep Plain English working unchanged. To load both Plain English and Simple English through Claude Code's plugin system:
 
 ```
 claude --plugin-dir ./claude-plain-english-skill
@@ -137,25 +140,31 @@ claude --plugin-dir ./claude-plain-english-skill
 
 ### Codex and ChatGPT
 
-Ask Codex to install the skill from this GitHub repository, or clone it into the Codex skills directory:
+To install only Plain English as a standalone Codex skill, clone the repository into the Codex skills directory:
 
 ```
 git clone https://github.com/b1rdmania/claude-plain-english-skill.git ~/.codex/skills/plain-english
 ```
 
-Invoke it explicitly with `$plain-english`, or let Codex select it when a request matches the skill description.
+To install both skills before the public plugin is available, use an Agent Skills installer that detects the repository's `skills/` directory:
+
+```
+npx skills add b1rdmania/claude-plain-english-skill --full-depth
+```
+
+Invoke `$plain-english` for essays, posts, emails, marketing copy, and other voice-led prose. Invoke `$simple-english` for READMEs, runbooks, procedures, error messages, incident reports, API guides, or an explicit ASD-STE100 request. Codex can also select either skill from its description.
 
 The repository includes `.codex-plugin/plugin.json` for the universal OpenAI Plugins Directory shared by ChatGPT and Codex. Once OpenAI approves and publishes the listing, users can install it from that directory. Until then, install it directly as a skill.
 
 ## Plugin distribution
 
-- **Claude Code:** `.claude-plugin/plugin.json` keeps the repository compatible with Claude Code's plugin format and the existing personal-skill installation.
-- **Codex and ChatGPT:** `.codex-plugin/plugin.json` and `skills/plain-english/` form the skills-only plugin submitted to OpenAI's universal Plugins Directory.
+- **Claude Code:** `.claude-plugin/plugin.json` exposes both folders under `skills/`; the existing personal-skill installation remains compatible with Plain English.
+- **Codex and ChatGPT:** `.codex-plugin/plugin.json` exposes both `skills/plain-english/` and `skills/simple-english/` through one skills-only plugin.
 - **No service or account required:** the plugin contains instructions and reference material only. It has no MCP server, authentication, telemetry, or external data store.
 
 Public directory publication requires OpenAI review. See [`submission/portal-copy.md`](submission/portal-copy.md) for the prepared listing copy, policy URLs, release notes, and test cases used during submission.
 
-Build the upload archive with `bash scripts/build-plugin-archive.sh`, then upload the resulting ZIP through the [OpenAI plugin submission portal](https://platform.openai.com/apps-manage). The publisher must complete identity verification and the final policy attestations.
+Build the upload archive with `bash scripts/build-plugin-archive.sh`, then upload the resulting ZIP through the [OpenAI plugin submission portal](https://platform.openai.com/apps-manage). The publisher must complete identity verification and the final policy attestations. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for the bundled SimpleEnglish version and licence.
 
 ## Trigger phrases
 

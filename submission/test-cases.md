@@ -28,9 +28,9 @@
 
 ### 5. Tighten instructional prose
 
-- **Prompt:** Make these instructions unambiguous: "Open the log and restart the service if the build fails. You should then potentially check the deployment."
-- **Expected behaviour:** Put the condition before the command, separate actions, remove the hedge stack, and distinguish requirements from optional guidance.
-- **Expected result shape:** Short instructions with one action per sentence.
+- **Prompt:** Rewrite these technical instructions in Simplified Technical English: "Open the log and restart the service if the build fails. You should then potentially check the deployment."
+- **Expected behaviour:** Invoke Simple English in strict mode. Put the condition before the command, separate actions, remove the banned modals, and preserve technical names.
+- **Expected result shape:** Short instructions with one action per sentence and a clear STE compliance caveat.
 
 ## Negative cases
 

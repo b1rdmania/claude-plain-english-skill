@@ -1,0 +1,4 @@
+interface:
+  display_name: "Simple English"
+  short_description: "Write unambiguous technical documentation"
+  default_prompt: "Use $simple-english to rewrite these technical instructions clearly and unambiguously."

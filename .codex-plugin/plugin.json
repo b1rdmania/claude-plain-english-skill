@@ -1,7 +1,7 @@
 {
   "name": "plain-english",
-  "version": "0.4.0",
-  "description": "Tighten prose with Orwell and Gowers plain-English rules while stripping common AI-writing tics.",
+  "version": "0.5.0",
+  "description": "Tighten prose or write unambiguous technical documentation with two complementary writing skills.",
   "author": {
     "name": "b1rdmania",
     "url": "https://github.com/b1rdmania"
@@ -18,8 +18,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Plain English",
-    "shortDescription": "Tighten prose and remove AI-writing tics.",
-    "longDescription": "Audit, rewrite, or minimally edit prose using Orwell and Gowers plain-English rules plus a second pass for common AI-writing habits.",
+    "shortDescription": "Clear prose and unambiguous technical docs.",
+    "longDescription": "Use Plain English for voice-led prose and Simple English for technical documentation governed by ASD-STE100-derived rules.",
     "developerName": "b1rdmania",
     "category": "Productivity",
     "capabilities": [
@@ -34,7 +34,7 @@
     "defaultPrompt": [
       "Rewrite this in plain English without changing its meaning.",
       "Audit this prose for bloat and common AI-writing tics.",
-      "Tighten this file with minimal edits."
+      "Rewrite these technical instructions in Simplified Technical English."
     ]
   }
 }
