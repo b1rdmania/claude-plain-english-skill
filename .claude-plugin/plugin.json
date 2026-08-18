@@ -1,0 +1,17 @@
+{
+  "name": "plain-english",
+  "version": "0.4.0",
+  "description": "Tighten prose with Orwell and Gowers plain-English rules while stripping common AI-writing tics.",
+  "author": {
+    "name": "b1rdmania"
+  },
+  "homepage": "https://github.com/b1rdmania/claude-plain-english-skill",
+  "repository": "https://github.com/b1rdmania/claude-plain-english-skill",
+  "license": "MIT",
+  "keywords": [
+    "plain-english",
+    "writing",
+    "editing",
+    "ai-writing"
+  ]
+}
