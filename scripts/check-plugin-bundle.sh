@@ -5,8 +5,10 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 bash "$repo_root/scripts/sync-plugin-skill.sh" --check
 python3 -m json.tool "$repo_root/.claude-plugin/plugin.json" >/dev/null
+python3 -m json.tool "$repo_root/.claude-plugin/marketplace.json" >/dev/null
 python3 -m json.tool "$repo_root/.codex-plugin/plugin.json" >/dev/null
 
+test -f "$repo_root/output-styles/plain-english.md"
 test -f "$repo_root/skills/plain-english/SKILL.md"
 test -f "$repo_root/skills/simple-english/SKILL.md"
 test -f "$repo_root/skills/simple-english/references/checklist.md"
@@ -22,6 +24,8 @@ archive_version="$(python3 -c 'import json, pathlib, sys; print(json.loads(pathl
 archive="$repo_root/dist/plain-english-$archive_version.zip"
 archive_listing="$(unzip -Z1 "$archive")"
 
+grep -Fqx 'plain-english/output-styles/plain-english.md' <<<"$archive_listing"
+grep -Fqx 'plain-english/.claude-plugin/marketplace.json' <<<"$archive_listing"
 grep -Fqx 'plain-english/skills/plain-english/SKILL.md' <<<"$archive_listing"
 grep -Fqx 'plain-english/skills/simple-english/SKILL.md' <<<"$archive_listing"
 grep -Fqx 'plain-english/skills/simple-english/references/checklist.md' <<<"$archive_listing"

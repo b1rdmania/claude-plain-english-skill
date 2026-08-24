@@ -130,17 +130,30 @@ The repository packages two Agent Skills for both Claude Code and Codex. `SKILL.
 
 ### Claude Code
 
-Install it as a personal skill:
+The repository is its own plugin marketplace. Add it, then install:
+
+```
+/plugin marketplace add b1rdmania/claude-plain-english-skill
+/plugin install plain-english@plain-english-marketplace
+```
+
+This installs both skills and the Plain English output style. Run `/clear` afterwards, because Claude Code reads output styles once at session start.
+
+The output style is optional and off until you pick it. Run `/config`, select **Output style**, and choose **Plain English** to apply the rules to every response instead of only to invoked rewrites. It keeps Claude Code's software engineering instructions, so coding behaviour is unchanged.
+
+Two older routes still work. Install Plain English alone as a personal skill:
 
 ```
 git clone https://github.com/b1rdmania/claude-plain-english-skill.git ~/.claude/skills/plain-english
 ```
 
-Existing Claude personal-skill installations keep Plain English working unchanged. To load both Plain English and Simple English through Claude Code's plugin system:
+Or load a local checkout without the marketplace:
 
 ```
 claude --plugin-dir ./claude-plain-english-skill
 ```
+
+Existing personal-skill installations keep Plain English working unchanged. Neither older route registers the output style, because Claude Code reads styles from `output-styles/` directories only. Remove the `~/.claude/skills/plain-english` clone when switching to the marketplace install, or both copies load and the skill names collide.
 
 ### Codex and ChatGPT
 
@@ -162,7 +175,7 @@ Invoke `$plain-english` for essays, posts, emails, marketing copy, and other voi
 
 ## Plugin distribution
 
-- **Claude Code:** `.claude-plugin/plugin.json` exposes both folders under `skills/`; the existing personal-skill installation remains compatible with Plain English.
+- **Claude Code:** the plugin exposes both folders under `skills/` and the style in `output-styles/`; `.claude-plugin/marketplace.json` lists the repository as a one-plugin marketplace so `/plugin marketplace add` works against the repository directly. The existing personal-skill installation remains compatible with Plain English.
 - **Codex and ChatGPT:** `.codex-plugin/plugin.json` exposes both `skills/plain-english/` and `skills/simple-english/` through one skills-only plugin, published in the OpenAI Plugins Directory.
 - **No service or account required:** the plugin contains instructions and reference material only. It has no MCP server, authentication, telemetry, or external data store.
 

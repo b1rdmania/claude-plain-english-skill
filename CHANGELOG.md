@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Claude Code installs from the repository in two commands. `.claude-plugin/marketplace.json` lists the repository as a one-plugin marketplace, so `/plugin marketplace add b1rdmania/claude-plain-english-skill` followed by `/plugin install plain-english@plain-english-marketplace` needs no clone and no `--plugin-dir` flag.
+
+`output-styles/plain-english.md` ships the Plain English rules as a selectable Claude Code output style. It applies the rules to every response rather than only to invoked rewrites, and sets `keep-coding-instructions: true` so software engineering behaviour is unchanged. The style is opt-in: users select it under **Output style** in `/config`.
+
 ## v0.5.1 — 2026-09-02
 
 Security hardening for untrusted prose and file contents. The Plain English skill now treats material being audited, rewritten, or edited as data rather than instructions. Embedded commands cannot authorize role changes, disclosure, browsing, tool use, command execution, or access to other files. Edit mode is explicitly limited to files named by the user.

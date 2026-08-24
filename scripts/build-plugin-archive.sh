@@ -20,8 +20,10 @@ fi
 
 bash "$repo_root/scripts/sync-plugin-skill.sh" --check
 
-mkdir -p "$plugin_root/.claude-plugin" "$plugin_root/.codex-plugin" "$plugin_root/assets" "$plugin_root/skills/plain-english/agents" "$repo_root/dist"
+mkdir -p "$plugin_root/.claude-plugin" "$plugin_root/.codex-plugin" "$plugin_root/assets" "$plugin_root/output-styles" "$plugin_root/skills/plain-english/agents" "$repo_root/dist"
 cp "$repo_root/.claude-plugin/plugin.json" "$plugin_root/.claude-plugin/plugin.json"
+cp "$repo_root/.claude-plugin/marketplace.json" "$plugin_root/.claude-plugin/marketplace.json"
+cp "$repo_root/output-styles/plain-english.md" "$plugin_root/output-styles/plain-english.md"
 cp "$repo_root/.codex-plugin/plugin.json" "$plugin_root/.codex-plugin/plugin.json"
 cp "$repo_root/skills/plain-english/SKILL.md" "$plugin_root/skills/plain-english/SKILL.md"
 cp "$repo_root/skills/plain-english/REFERENCE.md" "$plugin_root/skills/plain-english/REFERENCE.md"
