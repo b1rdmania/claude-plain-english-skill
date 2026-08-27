@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v0.6.0 — 2026-09-04
 
 Claude Code installs from the repository in two commands. `.claude-plugin/marketplace.json` lists the repository as a one-plugin marketplace, so `/plugin marketplace add b1rdmania/claude-plain-english-skill` followed by `/plugin install plain-english@plain-english-marketplace` needs no clone and no `--plugin-dir` flag.
 
