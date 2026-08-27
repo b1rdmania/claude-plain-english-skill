@@ -140,13 +140,15 @@ claude --plugin-dir ./claude-plain-english-skill
 
 ### Codex and ChatGPT
 
-To install only Plain English as a standalone Codex skill, clone the repository into the Codex skills directory:
+Plain English is published in the [OpenAI Plugins Directory](https://chatgpt.com/plugins/plugins_6a9018fd5fbc8191b65960624bb54e07). Install it from that listing. It carries both skills and works in ChatGPT and Codex.
+
+Two direct routes still work. Install Plain English alone as a standalone Codex skill:
 
 ```
 git clone https://github.com/b1rdmania/claude-plain-english-skill.git ~/.codex/skills/plain-english
 ```
 
-To install both skills before the public plugin is available, use an Agent Skills installer that detects the repository's `skills/` directory:
+Or install both skills with an Agent Skills installer that detects the repository's `skills/` directory:
 
 ```
 npx skills add b1rdmania/claude-plain-english-skill --full-depth
@@ -154,17 +156,17 @@ npx skills add b1rdmania/claude-plain-english-skill --full-depth
 
 Invoke `$plain-english` for essays, posts, emails, marketing copy, and other voice-led prose. Invoke `$simple-english` for READMEs, runbooks, procedures, error messages, incident reports, API guides, or an explicit ASD-STE100 request. Codex can also select either skill from its description.
 
-The repository includes `.codex-plugin/plugin.json` for the universal OpenAI Plugins Directory shared by ChatGPT and Codex. Once OpenAI approves and publishes the listing, users can install it from that directory. Until then, install it directly as a skill.
-
 ## Plugin distribution
 
 - **Claude Code:** `.claude-plugin/plugin.json` exposes both folders under `skills/`; the existing personal-skill installation remains compatible with Plain English.
-- **Codex and ChatGPT:** `.codex-plugin/plugin.json` exposes both `skills/plain-english/` and `skills/simple-english/` through one skills-only plugin.
+- **Codex and ChatGPT:** `.codex-plugin/plugin.json` exposes both `skills/plain-english/` and `skills/simple-english/` through one skills-only plugin, published in the OpenAI Plugins Directory.
 - **No service or account required:** the plugin contains instructions and reference material only. It has no MCP server, authentication, telemetry, or external data store.
 
-Public directory publication requires OpenAI review. See [`submission/portal-copy.md`](submission/portal-copy.md) for the prepared listing copy, policy URLs, release notes, and test cases used during submission.
+The directory listing tracks the last archive submitted to OpenAI, not the default branch. Releases that change only Claude Code packaging are not resubmitted, so the listing can sit behind the repository version.
 
-Build the upload archive with `bash scripts/build-plugin-archive.sh`, then upload the resulting ZIP through the [OpenAI plugin submission portal](https://platform.openai.com/apps-manage). The publisher must complete identity verification and the final policy attestations. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for the bundled SimpleEnglish version and licence.
+`PRIVACY.md` and `TERMS.md` are linked by absolute URL from the published listing, as is the repository homepage. Do not move or rename them.
+
+Build the upload archive with `bash scripts/build-plugin-archive.sh`, then upload the resulting ZIP through the [OpenAI plugin submission portal](https://platform.openai.com/apps-manage). See [`submission/portal-copy.md`](submission/portal-copy.md) for the listing copy, policy URLs, and test cases, and [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for the bundled SimpleEnglish version and licence.
 
 ## Trigger phrases
 
