@@ -4,7 +4,7 @@
 
 Plain English bundles an adapted copy of [AminBlg/SimpleEnglish](https://github.com/AminBlg/SimpleEnglish) at commit `63f5d57f0c56e24108f63655d40f1a2680bd4e6f` (upstream version 1.2.0).
 
-The Codex adaptation removes non-standard skill frontmatter fields and adds OpenAI interface metadata and companion-skill routing. The substantive ASD-STE100 rules and references are unchanged.
+The Codex adaptation removes non-standard skill frontmatter fields and adds OpenAI interface metadata and companion-skill routing. Version 0.5.1 adds an untrusted-input boundary section that is not in upstream. The substantive ASD-STE100 rules and references are unchanged.
 
 MIT License
 

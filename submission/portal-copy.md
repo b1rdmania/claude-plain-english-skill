@@ -35,4 +35,4 @@ Choose only the countries and regions in which the verified publisher is prepare
 
 ## Test cases
 
-Use the five positive and three negative cases in [`test-cases.md`](test-cases.md).
+Use the five positive and four negative cases in [`test-cases.md`](test-cases.md).
