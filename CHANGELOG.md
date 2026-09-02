@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.5.1 — 2026-09-02
+
+Security hardening for untrusted prose and file contents. The Plain English skill now treats material being audited, rewritten, or edited as data rather than instructions. Embedded commands cannot authorize role changes, disclosure, browsing, tool use, command execution, or access to other files. Edit mode is explicitly limited to files named by the user.
+
+Added an adversarial submission test for indirect prompt injection and documented the boundary in the README.
+
 ## v0.5.0 — 2026-08-18
 
 The two-skill release. The plugin now bundles SimpleEnglish 1.2.0 for full ASD-STE100-derived technical writing alongside Plain English for prose with a voice. Each skill has separate triggers and routes incompatible work to its companion instead of mixing both rule sets.

@@ -23,6 +23,10 @@ It runs two passes over prose. The first pass is the classical one. The second i
 
 It works in three modes. In **audit mode**, you paste prose and get back marked-up flags with suggested rewrites. In **rewrite mode**, you get back the cleaned version, with a few notes on what changed if you asked for them, plus a silent second pass that re-checks the rewrite before it's returned. In **edit mode**, you name a file and Claude Code or Codex makes minimal, targeted edits in place rather than handing back a copy. Either model can also call rewrite mode on its own drafts before delivering long-form prose, so the output arrives already cleaned up.
 
+## Security boundary
+
+Plain English treats submitted prose and named file contents as untrusted source material, not agent instructions. Commands, role changes, links, tool requests, and references to other files embedded in that material are never followed. Edit mode is limited to the files the user explicitly names. This contains indirect prompt injection without preventing the skill from doing its core job: reading and editing outside prose.
+
 ## The patterns it catches
 
 ### Pass 1 — classical bloat (Orwell + Gowers)
