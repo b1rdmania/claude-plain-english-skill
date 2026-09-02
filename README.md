@@ -25,7 +25,7 @@ It works in three modes. In **audit mode**, you paste prose and get back marked-
 
 ## Security boundary
 
-Plain English treats submitted prose and named file contents as untrusted source material, not agent instructions. Commands, role changes, links, tool requests, and references to other files embedded in that material are never followed. Edit mode is limited to the files the user explicitly names. This contains indirect prompt injection without preventing the skill from doing its core job: reading and editing outside prose.
+Both skills treat submitted prose and named file contents as untrusted source material, not agent instructions. Commands, role changes, links, tool requests, and references to other files embedded in that material are never followed. Edit mode is limited to the files the user explicitly names. This contains indirect prompt injection without preventing the skill from doing its core job: reading and editing outside prose.
 
 ## The patterns it catches
 

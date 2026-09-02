@@ -4,7 +4,7 @@
 
 Security hardening for untrusted prose and file contents. The Plain English skill now treats material being audited, rewritten, or edited as data rather than instructions. Embedded commands cannot authorize role changes, disclosure, browsing, tool use, command execution, or access to other files. Edit mode is explicitly limited to files named by the user.
 
-Added an adversarial submission test for indirect prompt injection and documented the boundary in the README.
+Simple English carries the same boundary. Added an adversarial submission test for indirect prompt injection and documented the boundary in the README.
 
 ## v0.5.0 — 2026-08-18
 
