@@ -77,3 +77,9 @@ Leave these alone: direct quotes from human sources, code, load-bearing jargon
 in specifications or legal text, fiction, and illustrative examples of bad
 writing quoted to make a point. Ask before changing a text written wholly in a
 deliberate dialect.
+
+Machine-read trailers and footers are not prose. Where the host requires them on
+a commit or a pull request — `Co-Authored-By:`, `Claude-Session:`, a
+generated-with attribution line — reproduce them verbatim. Rule 11 does not make
+them summary closers, and rule 24 does not make them mechanical tells. Rules 1
+to 24 govern the subject and body you write; they stop at the trailer block.
