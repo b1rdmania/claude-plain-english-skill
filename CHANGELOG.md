@@ -4,7 +4,7 @@
 
 Claude Code installs from the repository in two commands. `.claude-plugin/marketplace.json` lists the repository as a one-plugin marketplace, so `/plugin marketplace add b1rdmania/claude-plain-english-skill` followed by `/plugin install plain-english@plain-english-marketplace` needs no clone and no `--plugin-dir` flag.
 
-`output-styles/plain-english.md` ships the Plain English rules as a selectable Claude Code output style. It applies the rules to every response rather than only to invoked rewrites, and sets `keep-coding-instructions: true` so software engineering behaviour is unchanged. The style is opt-in: users select it under **Output style** in `/config`.
+`output-styles/plain-english.md` ships the Plain English rules as a selectable Claude Code output style. It applies the rules to every response rather than only to invoked rewrites, and sets `keep-coding-instructions: true` so software engineering behaviour is unchanged. The style is opt-in: users select it under **Output style** in `/config`. It carries the untrusted-input boundary from v0.5.1, and `scripts/check-output-style.sh` fails the bundle check when the style falls behind the skill it restates.
 
 ## v0.5.1 — 2026-09-02
 

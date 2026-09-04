@@ -75,4 +75,5 @@ sets conflict by design, so never apply both to the same text.
 
 Leave these alone: direct quotes from human sources, code, load-bearing jargon
 in specifications or legal text, fiction, and illustrative examples of bad
-writing quoted to make a point.
+writing quoted to make a point. Ask before changing a text written wholly in a
+deliberate dialect.

@@ -4,6 +4,7 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 bash "$repo_root/scripts/sync-plugin-skill.sh" --check
+bash "$repo_root/scripts/check-output-style.sh"
 python3 -m json.tool "$repo_root/.claude-plugin/plugin.json" >/dev/null
 python3 -m json.tool "$repo_root/.claude-plugin/marketplace.json" >/dev/null
 python3 -m json.tool "$repo_root/.codex-plugin/plugin.json" >/dev/null
