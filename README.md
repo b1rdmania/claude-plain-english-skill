@@ -139,7 +139,7 @@ The repository is its own plugin marketplace. Add it, then install:
 
 This installs both skills and the Plain English output style. Run `/clear` afterwards, because Claude Code reads output styles once at session start.
 
-The output style is optional and off until you pick it. Run `/config`, select **Output style**, and choose **Plain English** to apply the rules to every response instead of only to invoked rewrites. It keeps Claude Code's software engineering instructions, so coding behaviour is unchanged.
+The output style is optional and off until you pick it. Run `/config`, select **Output style**, and choose **plain-english:Plain English** to apply the rules to every response instead of only to invoked rewrites. It keeps Claude Code's software engineering instructions, so coding behaviour is unchanged.
 
 Two older routes still work. Install Plain English alone as a personal skill:
 

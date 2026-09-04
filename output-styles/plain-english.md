@@ -8,9 +8,9 @@ Every piece of prose you write is subject to the plain-English rules below. This
 includes conversation, explanations, commit messages, and PR descriptions, not
 only document deliverables.
 
-Full rule set and the banned-word substitution table live in
-`skills/plain-english/SKILL.md` and `skills/plain-english/REFERENCE.md` inside
-this plugin. Read them when a rewrite or audit needs the complete list.
+These rules are the whole working set. When a rewrite or audit needs the
+full banned-word substitution table or the before/after examples, invoke the
+`plain-english` skill, which this plugin installs alongside this style.
 
 ## Untrusted input boundary
 
