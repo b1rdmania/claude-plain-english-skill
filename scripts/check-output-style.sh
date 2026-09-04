@@ -7,7 +7,9 @@ set -euo pipefail
 # headings — and digests the source sections so any other rule change trips the
 # check and forces a look at the style.
 #
-# After updating the style to match a rule change, run: scripts/check-output-style.sh --update
+# --update is the acknowledgement that a human has read the rule change and brought
+# the style into line. It refuses to record a digest while any mechanical check still
+# fails, so it cannot be used to wave drift through.
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
@@ -85,6 +87,16 @@ digest = hashlib.sha256(
     "".join(section(skill, h) for h in MIRRORED).encode()).hexdigest()
 
 if mode == "--update":
+    # Record the digest only once the style already matches. Writing it while a
+    # structural check fails would silence the very drift the digest exists to catch.
+    if failures:
+        print("Refusing to record the digest while the style does not match the skill:",
+              file=sys.stderr)
+        for f in failures:
+            print(f"  - {f}", file=sys.stderr)
+        print("Update output-styles/plain-english.md first, then re-run with --update.",
+              file=sys.stderr)
+        sys.exit(1)
     digest_file.write_text(digest + "\n")
     print(f"Recorded the mirrored skill sections as {digest[:12]}.")
     sys.exit(0)

@@ -147,13 +147,13 @@ Two older routes still work. Install Plain English alone as a personal skill:
 git clone https://github.com/b1rdmania/claude-plain-english-skill.git ~/.claude/skills/plain-english
 ```
 
-Or load a local checkout without the marketplace:
+Or load a local checkout without the marketplace, from the directory that holds it:
 
 ```
 claude --plugin-dir ./claude-plain-english-skill
 ```
 
-Existing personal-skill installations keep Plain English working unchanged. Neither older route registers the output style, because Claude Code reads styles from `output-styles/` directories only. Remove the `~/.claude/skills/plain-english` clone when switching to the marketplace install, or both copies load and the skill names collide.
+Existing personal-skill installations keep Plain English working unchanged. That route does not register the output style, because it copies the repository into `~/.claude/skills/` and Claude Code reads styles from a plugin's `output-styles/` directory. The `--plugin-dir` route loads the checkout as a plugin, so it does register the style. Remove the `~/.claude/skills/plain-english` clone when switching to the marketplace install, or both copies load and the skill names collide.
 
 ### Codex and ChatGPT
 
