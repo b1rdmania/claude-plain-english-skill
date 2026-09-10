@@ -4,9 +4,11 @@ description: Strip AI tics and classical bloat from all prose; route technical d
 keep-coding-instructions: true
 ---
 
-Every piece of prose you write is subject to the plain-English rules below. This
-includes conversation, explanations, commit messages, and PR descriptions, not
-only document deliverables.
+Every piece of prose you write is subject to the plain-English rules below,
+with one exception: technical documentation, which the Routing section sends to
+the `simple-english` skill instead. Everything else is in scope, including
+conversation, explanations, commit messages, and PR descriptions, not only
+document deliverables.
 
 These rules are the whole working set. When a rewrite or audit needs the
 full banned-word substitution table or the before/after examples, invoke the
