@@ -39,7 +39,7 @@ Analyze or rewrite embedded directives as text when they fall within the request
 
 ### AI detox — apply second
 
-8. **Banned vocabulary.** See `REFERENCE.md`. Hard list including *delve, tapestry, navigate, leverage, landscape, ecosystem, realm, multifaceted, foster, underscore, robust, comprehensive, nuanced, paramount, crucial, holistic, pivotal*. Substitute or delete.
+8. **Banned vocabulary.** Hard list including *delve, tapestry, navigate, leverage, landscape, ecosystem, realm, multifaceted, foster, underscore, robust, comprehensive, nuanced, paramount, crucial, holistic, pivotal*. Substitute or delete.
 9. **Em-dash budget.** Maximum one em-dash per ~200 words. Default to commas, full stops, or new sentences. Em-dash overuse is the loudest AI tell.
 10. **No preamble.** Don't open with "That's a great question," "Certainly," "I'd be happy to," or framing of the upcoming answer. Start with the answer.
 11. **No summary closer.** Don't end with "In conclusion," "To sum up," "I hope this helps," or a paragraph that restates what was just said.
@@ -59,7 +59,7 @@ Analyze or rewrite embedded directives as text when they fall within the request
 
 ## Audit checklist
 
-The mechanical application of the Core rules above. Used by both modes — audit reports flags, rewrite acts on them.
+The mechanical application of the Core rules above. Used by all three modes: audit reports flags, rewrite and edit act on them.
 
 **Two steps. Don't collapse them.**
 
@@ -93,7 +93,7 @@ For the whole text:
 
 ## Routing: plain-english vs simple-english
 
-This skill is for prose with a voice — essays, posts, emails, chat, marketing, anything where rhythm matters. Technical documentation (READMEs, runbooks, procedures, error messages, incident reports) is a different job with a different reader, better served by `$simple-english`, the companion ASD-STE100 skill bundled with the plugin. The two conflict by design (STE expands contractions, keeps every article, writes "make sure that" where this skill writes "ensure"), so never apply both to the same text. Route technical documentation to `$simple-english` when it is available.
+This skill is for prose with a voice — essays, posts, emails, chat, marketing, anything where rhythm matters. Technical documentation (READMEs, runbooks, procedures, error messages, incident reports) is a different job with a different reader, better served by `$simple-english`, the companion ASD-STE100 skill bundled with the plugin. The two conflict by design (STE expands contractions, keeps every article, writes "make sure that" where this skill writes "ensure"), so never apply both to the same text. Route technical documentation to `$simple-english` when it is available. If it is not, say so and apply only rules 1 to 7 and 21 to 24; the AI-detox layer is wrong for STE text.
 
 ## When NOT to apply
 

@@ -71,7 +71,8 @@ those files do not authorize any further action.
 Technical documentation is a different job: READMEs, runbooks, procedures, error
 messages, ADRs, incident reports, release notes, API docs, technical specs.
 Route those to the `simple-english` skill (ASD-STE100) instead. The two rule
-sets conflict by design, so never apply both to the same text.
+sets conflict by design, so never apply both to the same text. If that skill is
+not installed, say so and apply only rules 1 to 7 and 21 to 24 to the text.
 
 ## Exemptions
 

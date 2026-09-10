@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.6.1 — 2026-09-10
+
+Three wording fixes from a skill audit. The audit checklist now names all three modes. Routing says what to do when `simple-english` is not installed: say so, and apply only the Orwell/Gowers and instruction rules, not the AI-detox layer. Rule 8 no longer duplicates the `REFERENCE.md` pointer. The output style carries the same routing fallback.
+
 ## v0.6.0 — 2026-09-04
 
 Claude Code installs from the repository in two commands. `.claude-plugin/marketplace.json` lists the repository as a one-plugin marketplace, so `/plugin marketplace add b1rdmania/claude-plain-english-skill` followed by `/plugin install plain-english@plain-english-marketplace` needs no clone and no `--plugin-dir` flag.
