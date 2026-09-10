@@ -1,0 +1,15 @@
+{
+  "name": "plain-english-marketplace",
+  "description": "Writing skills and an output style that strip AI tics from prose and technical documentation.",
+  "owner": {
+    "name": "b1rdmania",
+    "url": "https://github.com/b1rdmania"
+  },
+  "plugins": [
+    {
+      "name": "plain-english",
+      "source": "./",
+      "description": "Tighten prose or write unambiguous technical documentation with two complementary writing skills."
+    }
+  ]
+}
